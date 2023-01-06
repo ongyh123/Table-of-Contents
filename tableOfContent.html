@@ -215,7 +215,8 @@
 
       // If there's content, render it into the UI
       if (items) {
-        toc.innerHTML = `<p id="header">Table of Contents</p>
+        let title = toc.getAttribute('data-toc');
+        toc.innerHTML = `<p id="header">${title ? title : 'Table of Contents'}</p>
                 <ol>
                     ${items}
                 </ol>`;
