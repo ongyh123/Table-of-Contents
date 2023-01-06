@@ -14,7 +14,9 @@
         html {
           @apply m-6;
         }
-        h1, h2, #header {
+        h1,
+        h2,
+        #header {
           @apply text-2xl my-1 mt-8;
         }
         @screen md {
@@ -194,10 +196,21 @@
       let toc = document.querySelector('#table-of-contents');
       let headings = document.querySelectorAll('h2');
 
+      // Check the existing of heading's ID
+      function getID(heading) {
+        // If there's no ID, create one
+        if (!heading.id) {
+          heading.id = heading.textContent.replaceAll(' ', '-').toLowerCase();
+        }
+
+        // Return the heading ID
+        return heading.id;
+      }
+
       // Create the items of table of content
       let items = '';
       for (let heading of headings) {
-        items += `<li><a href="#${heading.id}">${heading.textContent}</a></li>`;
+        items += `<li><a href="#${getID(heading)}">${heading.textContent}</a></li>`;
       }
 
       // If there's content, render it into the UI
