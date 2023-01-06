@@ -14,7 +14,7 @@
         html {
           @apply m-6;
         }
-        h2 {
+        h1, h2, #header {
           @apply text-2xl my-1 mt-8;
         }
         @screen md {
@@ -22,17 +22,6 @@
             @apply m-16;
           }
         }
-      }
-    </style>
-
-    <style type="text/css">
-      h2 {
-        font-size: 24;
-        font-weight: 500;
-      }
-
-      html {
-        scroll-behavior: smooth;
       }
     </style>
   </head>
@@ -213,7 +202,7 @@
 
       // If there's content, render it into the UI
       if (items) {
-        toc.innerHTML = `<p><strong>Table of Contents</strong></p>
+        toc.innerHTML = `<p id="header">Table of Contents</p>
                 <ol>
                     ${items}
                 </ol>`;
